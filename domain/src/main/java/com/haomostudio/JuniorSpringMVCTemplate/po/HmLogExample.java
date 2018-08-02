@@ -1,6 +1,7 @@
 package com.haomostudio.JuniorSpringMVCTemplate.po;
 
-import com.haomo.plugin.Page;
+
+import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
 import java.util.Date;

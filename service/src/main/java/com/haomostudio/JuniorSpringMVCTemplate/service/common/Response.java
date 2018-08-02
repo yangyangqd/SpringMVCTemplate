@@ -12,6 +12,10 @@ public class Response {
 
     private Map<String, List<String>> headers;
 
+    private Map<Object, Object> data;
+
+    private String message;
+
     private String body;
 
     private Integer pageNo;
@@ -57,6 +61,21 @@ public class Response {
         return getPaginationValueFromHeader("total");
     }
 
+    public Map<Object, Object> getData() {
+        return data;
+    }
+
+    public void setData(Map<Object, Object> data) {
+        this.data = data;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     /**
      * 获得分页的整形数值：page_no, page_size, total

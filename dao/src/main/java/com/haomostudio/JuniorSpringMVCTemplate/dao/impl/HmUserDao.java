@@ -1,4 +1,4 @@
-package com.haomostudio.JuniorSpringMVCTemplate.dao;
+package com.haomostudio.JuniorSpringMVCTemplate.dao.impl;
 
 import com.haomostudio.JuniorSpringMVCTemplate.po.HmUser;
 import com.haomostudio.JuniorSpringMVCTemplate.po.HmUserExample;
@@ -7,7 +7,7 @@ import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
 
-public interface HmUserMapper {
+public interface HmUserDao {
     long countByExample(HmUserExample example);
 
     int deleteByExample(HmUserExample example);
