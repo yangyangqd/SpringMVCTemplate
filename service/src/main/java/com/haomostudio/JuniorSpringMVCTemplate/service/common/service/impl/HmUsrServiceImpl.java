@@ -46,4 +46,19 @@ public class HmUsrServiceImpl implements HmUsrService {
         return resultMap;
     }
 
+    @Override
+    public int insertSelective(HmUser user, AuthToken authToken) {
+        int k =0;
+        try {
+            int n = authTokenMapper.insertSelective(authToken);
+            if(n>0){
+                k = hmUserDao.insertSelective(user);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+        return k;
+    }
+
 }

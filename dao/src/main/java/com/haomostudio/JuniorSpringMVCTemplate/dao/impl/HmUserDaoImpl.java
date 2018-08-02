@@ -50,7 +50,30 @@ public class HmUserDaoImpl implements HmUserMapper {
 
     @Override
     public int insertSelective(HmUser record) {
-        return 0;
+        int n =this.getJdbcTemplate().update("insert into auth_token VALUES ('"
+                +record.getId()+"',"
+                +record.getUsername()+"','"
+                +record.getLoginid()+"','"
+                +record.getUsername()+ "','"
+                +record.getMobile()+"','"
+                +record.getEmail()+"','"
+                +record.getAvatar()+"','"
+                +record.getCreateTime()+"','"
+                +record.getLastUpdateTime()+"','"
+                +record.getLastLoginTime()+"','"
+                +record.getDepartmentCode()+"','"
+                +record.getRoleId()+"','"
+                +record.getMeetingRemindingTime()+"','"
+                +record.getJobTitle()+"','"
+                +record.getPhoneNumber()+"','"
+                +record.getPhoneNumberSpare()+"','"
+                +record.getRank()+"','"
+                +record.getCommunity()+"','"
+                +record.getEnable()+"','"
+                +record.getHide()+"','"
+                +record.getDepartmentId()+"','"
+                +record.getCode()+")");
+        return n;
     }
 
     @Override

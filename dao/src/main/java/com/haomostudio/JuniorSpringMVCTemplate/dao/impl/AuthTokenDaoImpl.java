@@ -14,13 +14,14 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
  * Created by shidaizhoukan on 2017/3/16.
  */
 @Repository(value = "hmUserDao")
-public class AuthTokenImpl implements AuthTokenMapper {
+public class AuthTokenDaoImpl implements AuthTokenMapper {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
@@ -52,7 +53,13 @@ public class AuthTokenImpl implements AuthTokenMapper {
 
     @Override
     public int insertSelective(AuthToken record) {
-        return 0;
+        int n =this.getJdbcTemplate().update("insert into auth_token VALUES ('"
+                + UUID.randomUUID().toString()+"','"
+                +record.getUserId()+"',"
+                +record.getToken()+"','"
+                +record.getCreateTime()+"','"
+                +record.getValidTime()+ ")");
+        return n;
     }
 
     @Override
